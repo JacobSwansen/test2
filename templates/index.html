@@ -9,18 +9,18 @@
     </p>
 
     <p>
-      <label for="ice-cream">
-        Favorite flavor of ice cream:
-        <select name="flavor" id="ice-cream" required>
+      <label for="sport">
+        Favorite Sport:
+        <select name="type" id="sport" required>
           <option value="" selected>Choose one ...</option>
-          <option value="vanilla">Vanilla</option>
-          <option value="chocolate">Chocolate</option>
-          <option value="swirl">Swirl</option>
+          <option value="football">football</option>
+          <option value="baseball">baseball</option>
+          <option value="basketball">basketball</option>
         </select>
       </label>
     </p>
     <p>
-      <label>Do you read for fun?</label>
+      <label>Have you seen Inception?</label>
       <label for="read-yes">
         <input
           type="radio"
@@ -45,35 +45,35 @@
     </p>
 
     <fieldset>
-      <legend>Choose your favorite activities</legend>
-      <label for="for-running">
+      <legend>Choose your favorite pizza topping</legend>
+      <label for="for-pepporoni">
         <input
           type="checkbox"
-          id="for-running"
-          name="activities"
-          value="running"
+          id="for-pepporoni"
+          name="topping"
+          value="pepporoni"
         />
-        Running
+        Pepporoni
       </label>
 
-      <label for="for-biking">
+      <label for="for-sausage">
         <input
           type="checkbox"
-          id="for-biking"
-          name="activities"
-          value="biking"
+          id="for-sausage"
+          name="topping"
+          value="sausage"
         />
-        Biking
+        sausage
       </label>
 
-      <label for="for-reading">
+      <label for="for-pineapple">
         <input
           type="checkbox"
-          id="for-reading"
-          name="activities"
-          value="reading"
+          id="for-pineapple"
+          name="topping"
+          value="pineapple"
         />
-        Reading
+        Pineapple
       </label>
     </fieldset>
 
@@ -88,9 +88,9 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Favorite Ice Cream</th>
-        <th>Read for Fun</th>
-        <th>Favorite Activities</th>
+        <th>Favorite Sport</th>
+        <th>Seen Inception?</th>
+        <th>Pizza Topping</th>
       </tr>
     </thead>
 
@@ -98,16 +98,16 @@
       {% for friend in friends %}
       <tr>
         <td>{{ friend.name }}</td>
-        <td>{{ friend.flavor }}</td>
-        <td>{{ friend.read }}</td>
-        <td>{{ friend.activities }}</td>
+        <td>{{ friend.sport }}</td>
+        <td>{{ friend.inception }}</td>
+        <td>{{ friend.topping }}</td>
       </tr>
       {% endfor %}
-      <nav>
-        <a href="/Users/jacobswansen/Documents/github/test2/templates/about.html"> About Page </a>
-      </nav>
     </tbody>
   </table>
   {% endif %}
 </main>
 {% endblock %}
+<nav>
+  <a href="/Users/jacobswansen/Documents/github/test2/templates/about.html"> About Page </a>
+</nav>
