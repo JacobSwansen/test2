@@ -1,113 +1,135 @@
 {% extends 'base.html' %} {% block body %}
-<h2>Digital Product Management - Web Form Template</h2>
+<h2>Add a book to library</h2>
 <hr />
 <main>
   <form action="/add" method="POST">
     <p>
-      <label for="first-name">First name:</label>
-      <input type="text" id="first-name" name="fname" />
-    </p>
-
-    <p>
-      <label for="ice-cream">
-        Favorite flavor of ice cream:
-        <select name="flavor" id="ice-cream" required>
-          <option value="" selected>Choose one ...</option>
-          <option value="vanilla">Vanilla</option>
-          <option value="chocolate">Chocolate</option>
-          <option value="swirl">Swirl</option>
-        </select>
-      </label>
+      <label for="title">Title:</label>
+      <input type="text" id="title" name="fname" />
     </p>
     <p>
-      <label>Do you read for fun?</label>
-      <label for="read-yes">
+      <label for="author">Author:</label>
+      <input type="text" id="author" name="fname" />
+    </p>
+    <p>
+      <label for="Pages">Pages:</label>
+      <input type="text" id="Pages" name="fname" />
+    </p>
+    <p>
+      <label>Classification?</label>
+      <label for="read-fiction">
         <input
           type="radio"
-          id="read-yes"
+          id="read-fiction"
           name="read"
-          value="yes"
+          value="fiction"
           required="required"
         />
-        Yes
+        Fiction
       </label>
 
-      <label for="read-no">
+      <label for="read-non-fiction">
         <input
           type="radio"
-          id="read-no"
+          id="read-non-fiction"
           name="read"
-          value="no"
+          value="non-fiction"
           required="required"
         />
-        No
+        Non-fiction
       </label>
     </p>
-
+  
     <fieldset>
-      <legend>Choose your favorite activities</legend>
-      <label for="for-running">
+      <legend>Details:</legend>
+      <label for="for-I own this book">
         <input
           type="checkbox"
-          id="for-running"
-          name="activities"
-          value="running"
+          id="for-I own this book"
+          name="Details"
+          value="I own this book"
         />
-        Running
-      </label>
+        I own this book
+      </label><br>
 
-      <label for="for-biking">
+      <label for="for-I've read this book">
         <input
           type="checkbox"
-          id="for-biking"
-          name="activities"
-          value="biking"
+          id="for-I've read this book"
+          name="Details"
+          value="I've read this book"
         />
-        Biking
-      </label>
+        I've read this book
+      </label><br>
 
-      <label for="for-reading">
+      <label for="for-I liked this book">
         <input
           type="checkbox"
-          id="for-reading"
-          name="activities"
-          value="reading"
+          id="for-I liked this book"
+          name="Details"
+          value="I liked this book"
         />
-        Reading
+        I liked this book
+      </label><br>
+
+      <label for="for-I would recommend this book to others">
+        <input
+          type="checkbox"
+          id="for-I would recommend this book to others"
+          name="Details"
+          value="I would recommend this book to others"
+        />
+        I would recommend this book to others
       </label>
     </fieldset>
 
-    <p><input type="submit" id="submit" value="Submit" /></p>
-  </form>
-
+  <p>
+    <label for="How did I get this book?">
+      How did I get this book?:
+      <select name="type" id="How did I get this book?" required>
+        <option value="" selected>- Select Option - </option>
+        <option value="I purchased it.">I purchased it. </option>
+        <option value="It was a gift.">It was a gift.</option>
+        <option value="I checked it out from the library.">I checked it out from the library.</option>
+        <option value="A friend loaned it to me.">A friend loaned it to me.</option>
+      </select>
+    </label>
+  </p>
+  <p><input type="Add book" id="Add book" value="Add book" /></p>
+</form>
+  <p>
   <br /><br />
-  {% if friends %}
-  <h3>Friend List</h3>
+  
+  <h3>List of books</h3>
   <hr />
   <table border="1">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Favorite Ice Cream</th>
-        <th>Read for Fun</th>
-        <th>Favorite Activities</th>
+        <th>Title</th>
+        <th>Author</th>
+        <th>Pages</th>
+        <th>Classification</th>
+        <th>Details</th>
+        <th>Acquisition</th>
       </tr>
     </thead>
 
     <tbody>
-      {% for friend in friends %}
+      
       <tr>
-        <td>{{ friend.name }}</td>
-        <td>{{ friend.flavor }}</td>
-        <td>{{ friend.read }}</td>
-        <td>{{ friend.activities }}</td>
+        <td>The Hobbit</td>
+        <td>J.R.R Tolkien</td>
+        <td>295</td>
+        <td>fiction</td>
+        <td>read, recommend</td>
+        <td>library</td>
       </tr>
-      {% endfor %}
-      <nav>
-        <a href="/Users/jacobswansen/Documents/github/test2/templates/about.html"> About Page </a>
-      </nav>
+      
     </tbody>
   </table>
-  {% endif %}
+  
 </main>
-{% endblock %}
+
+<nav>
+  <a href="/Users/jacobswansen/Documents/github/test2/templates/about.html"> About Page </a>
+</nav>
