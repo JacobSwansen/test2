@@ -6,6 +6,17 @@ friends_dict = [
     {"name": "Test", "flavor": "swirl", "read": "yes", "activities": "reading"}
 ]
 
+# Handling error 404 and displaying relevant web page
+@app.errorhandler(404)
+def not_found_error(error):
+    return render_template("404.html"), 404
+
+
+    # Handling error 500 and displaying relevant web page
+@app.errorhandler(500)
+def internal_error(error):
+    return render_template("500.html"), 500
+
 
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -50,6 +61,7 @@ def add():
             friend_dict
         )  # append this dictionary entry to the larger friends dictionary
         print(friends_dict)
+        flash('Record Successfuly Added."')
         return redirect(url_for("index"))
     else:
         return redirect(url_for("index"))
