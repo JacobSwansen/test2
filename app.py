@@ -1,6 +1,8 @@
 from flask import Flask, request, render_template, redirect, url_for
+from flask import Flask, request, render_template, redirect, url_for, flash
 
 app = Flask(__name__)
+app.config["SECRET_KEY"] = "your_random_string"
 
 friends_dict = [
     {"name": "Test", "flavor": "swirl", "read": "yes", "activities": "reading"}
@@ -61,7 +63,7 @@ def add():
             friend_dict
         )  # append this dictionary entry to the larger friends dictionary
         print(friends_dict)
-        flash('Record Successfuly Added."')
+        flash('Record Successfuly Added.', 'success')
         return redirect(url_for("index"))
     else:
         return redirect(url_for("index"))
